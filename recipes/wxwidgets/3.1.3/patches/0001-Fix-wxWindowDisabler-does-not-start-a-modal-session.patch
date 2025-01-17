@@ -1,0 +1,15 @@
+diff --git a/src/osx/cocoa/evtloop.mm b/src/osx/cocoa/evtloop.mm
+index 57b4cb67f2..1d85888590 100644
+--- a/src/osx/cocoa/evtloop.mm
++++ b/src/osx/cocoa/evtloop.mm
+@@ -513,7 +513,9 @@ void wxGUIEventLoop::EndModalSession()
+     wxASSERT_MSG(m_modalSession != nullptr, "no modal session active");
+     
+     wxASSERT_MSG(m_modalNestedLevel > 0, "incorrect modal nesting level");
+-    
++
++    m_modalWindow = nullptr;
++
+     --m_modalNestedLevel;
+     if ( m_modalNestedLevel == 0 )
+     {
